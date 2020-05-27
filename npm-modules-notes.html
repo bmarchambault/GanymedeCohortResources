@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NPM & Module Notes</title>
+</head>
+<body>
+
+
+create an npm project:
+    -intellij - open new project; static web page; name it.
+    -github - create a new repo; name it; follow instructions.
+    -make sure you have node and npm installed
+    -in terminal:  npm init
+    -load libraries
+    -create a src dir and add index.js
+    -create a public dir and add index.html with a script tag pointing to main.js
+<!--        -<script src="main.js"></script>-->
+    -update gitignore with:  public/main.js, *.map, node_modules
+    -in terminal:  npm install
+    - in the package.json file add the following to the scripts:
+            "build": "webpack",
+            "build:watch": "webpack -- watch"
+            "build:production": "webpack -p"
+    - in terminal:  npm run build
+
+
+
+
+
+
+npm init - creates an npm project in the current directory
+        - generates a package.json
+
+npm install - installs dependencies libraries.
+        in the terminal, you can install more than one library, just separate by spaces.
+    Example:  npm i @babel/core babel-loader @babel/preset-ev webpack webpack-cli
+
+npm uninstall - uninstalls libraries
+
+npm run SCRIPT-NAME - this puts all your files together and update changes throughout your project.
+        - in your package json file, there are scripts.  these are the names that you can run
+                            Example:
+                            package.json - "scripts":{
+                                                "build": "webpack"
+                                            }
+                            in terminal:
+                                npm run build
+
+npm update PKG-NAME - updates your library.  omit the package name to update all
+
+
+npmjs.com is where you get libraries.
+    look at the documentation.  it shows how to install and look for the variable name.  add let variable name = require ('xyz') to your index.js
+        Example - install jquery and randomColor libraries
+            const $ = require('jquery')
+            const randomColor = require('randomColor')
+                -- next, call your variable
+           let color =  randomColor ();
+            to use: $('body').css('background-color', color);
+
+
+Libraries we used for class:
+    @babel/core - how babel transpiles code
+    babel-loader - allows webpack to use babel
+    @babel/preset-env - how the code should be transpiled
+    webpack - the module bundler
+    webpack-cli - a required dependency to issue webpack commands
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
