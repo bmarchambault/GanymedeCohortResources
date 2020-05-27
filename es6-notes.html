@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+const users = [
+{
+name: 'zach',
+email: 'zach@codeup.com',
+languages: ['javascript', 'bash']
+},
+{
+name: 'ryan',
+email: 'ryan@codeup.com',
+languages: ['clojure', 'javascript']
+},
+{
+name: 'luis',
+email: 'luis@codeup.com',
+languages: ['java', 'scala', 'php']
+},
+{
+name: 'fernando',
+email: 'fernando@codeup.com',
+languages: ['java', 'php', 'sql']
+},
+{
+name: 'justin',
+email: 'justin@codeup.com',
+languages: ['html', 'css', 'javascript', 'php']
+}
+];
+
+//CREATING A NEW OBJECT:
+const name = 'Bobbie';
+const email = 'email@gmail.com';
+const languages = ['html', 'css', 'javascript'];
+
+//ADDING THE NEW OBJECT TO THE ARRAY:
+users.push({
+name,
+email,
+languages
+})
+// console.log(users);
+
+
+//PULLING ELEMENTS FROM THE USERS ARRAY AND PUTTING THEM INTO NEW ARRAYS:
+let emails = [];
+let names = [];
+
+users.forEach (user => {emails.push(user.email)});
+users.forEach (user => {names.push(user.name)} );
+
+
+
+//CREATING A NEW ARRAY USING THE INFO TAKEN FROM USERS ARRAY -  DESTRUCTURING AND TEMPLATE STRINGS
+let developers = [];
+users.forEach(function(user) {
+const {name, email, languages} = user;	//DESTRUCTURING USERS ARRAY
+developers.push(`${name}'s email is ${email}. ${name} knows ${languages.join(', ') }`);						//TEMPLATE STRINGS TO CONCAT
+});
+// console.log(developers.push(`${name}'s email is ${email}. ${name} knows ${languages.join(', ')}`));
+//you can type developers in the console log too to see the list
+
+//ES6 FOR EACH:
+users.forEach(user =>{
+const {name, email, languages}
+developers.push(`${name}'s email is ${email}. ${name} knows
+${languages.join(', ') }` );
+});
+
+//can also:
+users.forEach( ({name, email, language}) =>{
+developers.push(`${name}'s email is ${email}. ${name} knows ${languages.join(', ')}`);
+});
+
+
+//PUT IT ALL TOGETHER:
+let list = '<ul>';
+    for(let developer of developers){
+    list += `<li> ${developer} </li>`;
+    }
+    list += '</ul>';
+
+
+
+</body>
+</html>
