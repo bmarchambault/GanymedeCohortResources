@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>ES6 Note</title>
 </head>
 <body>
 
-
+curriculum exercise with notes:
+<!------------------------------------------------------->
 const users = [
 {
 name: 'zach',
@@ -87,7 +88,87 @@ let list = '<ul>';
     }
     list += '</ul>';
 
+<!--------------------------------------------------------------------------->
+personal notes and things I've learned:
 
+function sum (a, b) {                       let sum = (a, b) => {
+return a+b                                      return a + b
+}                                               }
+                                                    reduced es6 verson:
+                                                 let sum = (a, b) => a + b
+
+es6 is helpful for anon functions most of all:
+    es5:    document.addEventListner('click', function() {
+        console.log('click')
+    })
+
+    es6:  document.addEventListner('click', () => console.log('click')
+
+NOTE:  when useing the 'this' keyword, ES6 is better to use.  the => changes the this reference.
+
+
+Promises:
+when you create a custom promise, the code is what the promise does if the promise is resolved
+.then() is the method we use to add code in case the promise is resovled
+.catch() is the method we use to add code in case the promise is rejected.
+promise.all - sends an array of the promises to the browser all resolved promises.
+promise.race - sends an array of the promises to the browser but will return the first promise that is resolved.
+
+why promises:
+java script reads line by line and can also do one thing at a time.  it works with the browser to complete tasks.  the browser is responsible for  running async code.
+
+given sync code example:
+        let name = () {
+            console.log('running a function')
+            console.log('doing what the code in the function says')
+        }
+        console.log('start')
+        name();
+        console.log('finish')
+
+    --javascript reads line by line
+        -- js reads function and commits it to memory for later use
+        -- sees the console.log
+        --see the function is called
+        -- see the console.log
+What happens in the callstack
+    --run and delete console.log start
+    -- run and delete function
+    --run and delete console.log finish
+
+what we see in the console:  start, running a function, doing what the code in the function says, finish;
+
+for async:
+    console.log('start')
+    a function with a delay or an ajax
+    <!--some code, like a setTimeout or ajax request-->
+    console.log('finish')
+
+
+    --javascript reads line by line
+    -- sees the console.log
+    -- js reads function and commits it to memory for later use
+    --see the function is called
+        Or send the ajax request
+    -- see the console.log
+    What happens in the callstack
+    --run and delete console.log start
+    -- sends the function or request to the browser
+    --run and delete console.log finish
+    --browser returns the function or request
+
+    what we see in the console:  start, finish, function or request response.
+
+
+
+most callback functions are async.  callback functions are just anonymous functions used as an argument to be used at a later time, or in the case of a promise, when it is resolved.
+ (){--code here--}
+
+forEach callbacks are not async
+const items [1, 2, 3, 4, 5, ]
+items.forEach(items => console.log(items))
+
+event listeners are async and are passed to the webAPI (browser)
 
 </body>
 </html>
